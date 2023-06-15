@@ -1,13 +1,14 @@
 # include <stdio.h>
 /**
- * main: This program prints "Programming is like building a multilingual puzzle"
+ * main: Entry point
+ * Description: Displays "Programming is like building a multilingual puzzle"
  *
  * Return: 0 (success)
  *
  */
-int main (void)
+int main(void)
 {
 puts("\"Programming is like building a multilingual puzzle");
-return(0);
+return (0);
 
 }
