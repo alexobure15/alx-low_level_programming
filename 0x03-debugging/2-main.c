@@ -4,13 +4,13 @@
 /**
  * main - Entry point
  * 
- * Return: Always (success)
+ * Return: return 0
  */
 
 	int main(void)
 	{
-		int largest;
 		int a, b, c;
+		int largest;
 	
 		a = 972;
 		b = -98;
@@ -19,6 +19,7 @@
 	largest = largest_number(a, b, c);
 
 	printf("%d is the largest number\n", largest);
-
+	
+	return (0);
 }
 
