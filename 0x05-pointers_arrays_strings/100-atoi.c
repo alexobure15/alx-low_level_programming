@@ -27,8 +27,8 @@
 			boolean = 1;
 		}
 		else if (boolean == 1)
-			break;
-			i++;
+		break;
+		i++;
 		}
 		result *= minus;
 		return (result);
