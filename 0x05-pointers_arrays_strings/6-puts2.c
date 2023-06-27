@@ -2,23 +2,22 @@
 /**
  * puts2 - print alternating chars of string
  *
- * @str: an input string
+ * @str: string
  *
  * Return: void
  */
 
 	void puts2(char *str)
 	{
-		int i;
+		int len = 0, i = 0;
 
-		i = 0;
+		while (str[len] != '\0')
+			len++;
 
-		while (str[i] != '\0')
-		{
-			if (i % 2 == 0)
+		len -= 1;
 
-				_putchar(str[i]);
-				i++;
-		}
+		for (; i <= len; i += 2)
+			_putchar(str[i]);
+
 		_putchar('\n');
 	}
