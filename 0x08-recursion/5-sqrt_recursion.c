@@ -9,9 +9,18 @@
 
 	int _sqrt_recursion(int n)
 	{
+		int start;
+
+		start = 1;
+
 		if (n < 0)
 			return (-1);
-		return (actual_sqrt_recursion(n, 0));
+
+		else if (n == 1)
+			return (1);
+
+		else
+			return (check_int(n, start));
 	}
 
 /**
@@ -27,11 +36,15 @@
 
 	int actual_sqrt_recursion(int square, int i)
 	{
-		if (i * i > square)
-			return (-1);
-
 		if (i * i == square)
 			return (i);
 
-		return (actual_sqrt_recursion(square, i + 1));
+		if (i > square / i)
+			return (check_int(square, i - 1));
+
+		else if (i < square / i)
+			return (check_int(square, i + 1));
+
+		else
+			return (-1);
 	}
