@@ -24,7 +24,7 @@
 	}
 
 /**
- * actual_sqrt_recursion - recurses to find the natural
+ * check_int - recurses to find the natural
  * square root of a number
  *
  * @square: square integer
@@ -34,7 +34,7 @@
  * Return: the resulting square root
  */
 
-	int actual_sqrt_recursion(int square, int i)
+	int check_int(int square, int i)
 	{
 		if (i * i == square)
 			return (i);
