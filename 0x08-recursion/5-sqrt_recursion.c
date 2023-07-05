@@ -9,42 +9,30 @@
 
 	int _sqrt_recursion(int n)
 	{
-		int start;
-
-		start = 1;
-
 		if (n < 0)
 			return (-1);
 
-		else if (n == 1)
-			return (1);
-
-		else
-			return (check_int(n, start));
+		return (actual_sqrt_recursion(n, 0));
 	}
 
 /**
- * check_int - recurses to find the natural
+ * actual_sqrt_recursion - recurses to find the natural
  * square root of a number
  *
- * @square: square integer
+ * @n: number to calculate the sqrt of a number
  *
  * @i: iterator
  *
- * Return: the resulting square root
+ * Return: resulting sqrt
  */
 
-	int check_int(int square, int i)
+	int actual_sqrt_recursion(int n, int i)
 	{
-		if (i * i == square)
+		if (i * i > n)
+			return (-1);
+
+		if (i * i == n)
 			return (i);
 
-		if (i > square / i)
-			return (check_int(square, i - 1));
-
-		else if (i < square / i)
-			return (check_int(square, i + 1));
-
-		else
-			return (-1);
+		return (actual_sqrt_recursion(n, i + 1));
 	}
