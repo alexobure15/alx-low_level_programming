@@ -2,11 +2,11 @@
 /**
  * is_palindrome - checks if a string is a palindrome
  *
- * @s: string 
+ * @s: string
  *
  * Return: 1 if it is, 0 it's not
  */
- 
+
 	int is_palindrome(char *s)
 	{
 		if (*s == 0)
@@ -17,8 +17,8 @@
 
 /**
  * _strlen_recursion - returns the length of a string
- * 
- * @s: string 
+ *
+ * @s: string
  *
  * Return: string length
  */
