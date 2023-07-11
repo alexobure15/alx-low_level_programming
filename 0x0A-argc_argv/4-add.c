@@ -7,7 +7,6 @@
 
 /**
  * main - prints the name of the program
- * to make change for an amount of money
  *
  * @argc: number of args
  *
