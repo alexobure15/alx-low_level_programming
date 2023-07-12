@@ -22,7 +22,7 @@
 			return (NULL);
 
 		r = (int **)malloc(sizeof(int *) * height);
-		if (t == NULL)
+		if (r == NULL)
 			return (NULL);
 
 		for (j = 0; j < height; j++)
