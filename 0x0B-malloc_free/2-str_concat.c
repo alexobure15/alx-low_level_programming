@@ -27,7 +27,7 @@
 		while (s1[i] != '\0')
 			i++;
 
-		while (s2[ci] != '\0')
+		while (s2[t] != '\0')
 			t++;
 
 		conc = malloc(sizeof(char) * (i + t + 1));
