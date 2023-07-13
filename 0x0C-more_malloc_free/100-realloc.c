@@ -24,7 +24,7 @@
 
 		if (new_size == 0 && t)
 		{
-			free(ptr);
+			free(t);
 			return (NULL);
 		}
 
@@ -46,7 +46,7 @@
 		if (new_size > old_size)
 		{
 			for (j = 0; j < old_size; j++)
-				jpt1[j] = old_t[j];
+				t1[j] = old_t[j];
 
 		}
 
