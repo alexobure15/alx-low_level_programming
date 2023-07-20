@@ -15,15 +15,16 @@ int print_c(va_list a);
 /**
  * struct op - struct for 3
  *
- * @c: character to check
+ * @c: char to check
  *
- * @f: function to point
+ * @f: func to point
  */
 
 typedef struct op
 {
 	char *c;
 	int (*f)(va_list a);
+
 } printer;
 
 #endif

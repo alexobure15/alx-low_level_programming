@@ -19,7 +19,7 @@ int print_c(va_list a)
 }
 
 /**
- * print_c - prints character
+ * print_i - prints integer
  *
  * @a: list of types of arguments passed
  *
@@ -34,7 +34,7 @@ int print_i(va_list a)
 }
 
 /**
- * print_c - prints character
+ * print_f - prints float
  *
  * @a: list of types of arguments passed
  *
@@ -49,7 +49,7 @@ int print_f(va_list a)
 }
 
 /**
- * print_c - prints character
+ * print_s - prints string
  *
  * @a: list of types of arguments passed
  *
@@ -73,7 +73,7 @@ int print_s(va_list a)
 }
 
 /**
- * print_all - prints annything
+ * print_all - prints anything
  *
  * @format: types of args passed to the function
  *
