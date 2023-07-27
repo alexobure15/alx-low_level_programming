@@ -6,14 +6,14 @@
  * add_node - adds a new node at the beginning
  * of  list_t list
  *
- * @h: head  of linked list
+ * @head: head  of linked list
  *
  * @str: string to be used as a node
  *
  * Return: number of elements printed
  */
 
-	list_t *add_node(list_t **h, const char *str)
+	list_t *add_node(list_t **head, const char *str)
 	{
 		list_t *new;
 		int j = 0;
