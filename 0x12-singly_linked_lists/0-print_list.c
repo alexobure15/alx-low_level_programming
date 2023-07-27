@@ -4,22 +4,22 @@
 /**
  * print_list - prints all the elements of a list_t list
  *
- * @h: linked list head
+ * @head: linked list head
  *
  * Return: number of elements printed
  */
 
-	size_t print_list(const list_t *h)
+	size_t print_list(const list_t *head)
 	{
 		size_t z = 0;
 
-		while (h)
+		while (head)
 		{
-			if (!h->str)
+			if (!head->str)
 				printf("[0] (nil)\n");
 			else
-				printf("[%u] %s\n", h->len, h->str);
-			h = h->next;
+				printf("[%u] %s\n", head->len, head->str);
+			head = head->next;
 			z++;
 		}
 
