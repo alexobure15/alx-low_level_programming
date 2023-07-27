@@ -2,6 +2,29 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+/**
+* _strlen - func that returns the len of a strg.
+*
+* @s : string character
+*
+* Return: Always (Success)
+*/
+
+	int _strlen(const char *s)
+
+	int _strlen(const char *s)
+	{
+		int j = 0;
+
+
+		while (s[j] != '\0')
+		{
+			j++;
+		}
+		return (j);
+	}
+
 /**
  * add_node - adds a new node at the beginning
  * of  list_t list
@@ -15,21 +38,18 @@
 
 	list_t *add_node(list_t **head, const char *str)
 	{
-		list_t *new;
-		unsigned int leng = 0;
+		list_t *add;
 
-		while (str[leng])
-			leng++;
+		add = malloc(sizeof(list_t));
+		if (add == NULL)
+		return (NULL);
+		add->str = strdup(str);
 
-		new = malloc(sizeof(list_t));
-		if (!new)
-			return (NULL);
 
-		new->str = strdup(str);
-		new->leng = leng;
-		new->next = (*head);
-		(*head) = new;
+		add->len = _strlen(str);
+		add->next = *head;
+		*head = add;
 
-		return (*head);
+
+		return (add);
 	}
-
