@@ -8,4 +8,5 @@ main:
 	  mov 	eax, 0
 	  ret
 
-format: db "Hello, Holberton",0
+msg: db "Hello, Holberton",0
+format: db "%s", 10,0
