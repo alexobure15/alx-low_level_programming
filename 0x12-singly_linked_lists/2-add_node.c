@@ -4,14 +4,12 @@
 #include <stdlib.h>
 
 /**
-* _strlen - func that returns the len of a strg.
+* _strlen - func that returns the len of a strg
 *
 * @s : string character
 *
 * Return: Always (Success)
 */
-
-	int _strlen(const char *s)
 
 	int _strlen(const char *s)
 	{
@@ -43,8 +41,8 @@
 		add = malloc(sizeof(list_t));
 		if (add == NULL)
 		return (NULL);
-		add->str = strdup(str);
 
+		add->str = strdup(str);
 
 		add->len = _strlen(str);
 		add->next = *head;
