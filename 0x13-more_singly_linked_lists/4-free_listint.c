@@ -6,8 +6,6 @@
  * free_listint - Func that frees a linked list
  *
  * @head: linked list head
- *
- * Return: void
  */
 
 	void free_listint(listint_t **head)
