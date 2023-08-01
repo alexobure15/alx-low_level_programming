@@ -14,8 +14,8 @@
 
 		while (head)
 		{
-			free(head);
 			tmp = head->next;
+			free(head);
 			head = tmp;
 		}
 	}
