@@ -1,6 +1,36 @@
 #include <stdio.h>
 #include "lists.h"
+/**
+ * _ma - Function that assigns mem to the linked list
+ *
+ * @list: list of elements
+ *
+ * @size: new list size
+ *
+ * @new: updated  node
+ *
+ * Return: printee nodes
+ */
+	listint_t **_ma(listint_t **list, size_t size, listint_t *new)
+	{
+	listint_t **new_list;
+	size_t z;
 
+	new_list = malloc(size * sizeof(listint_t *));
+
+	if (newlist == NULL)
+	{
+		free(list);
+		exit(98);
+	}
+
+	for (z = 0; z < size - 1; z++)
+	new_list[z] = list[z];
+	new_list[z] = new;
+	free(list);
+
+	return (newlist);
+	}
 /**
  * free_listint_safe - Func that frees a linked list
  * @h: 1st node in a linked list
@@ -8,33 +38,31 @@
  */
 	size_t free_listint_safe(listint_t **h)
 	{
-		size_t len = 0;
-		int i;
-		listint_t *tp;
+		size_t z, num_nod = 0;
+		listint_t **list = NULL;
+		listint_t *next;
 
-		if (!h || !*h)
-			return (0);
+		if (h == NULL || *h == NULL)
+			return (num_nod);
 
-		while (*h)
+		while (*h != NULL)
 		{
-			i = *h - (*h)->next;
-			if (i > 0)
+			for (z = 0; z < num_nod; z++)
 			{
-				tp = (*h)->next;
-				free(*h);
-				*h = tp;
-				len++;
+				if (*h == list[z])
+				{
+					*h = NULL;
+					free(list);
+
+					return (num_nod);
+				}
 			}
-			else
-			{
-				free(*h);
-				*h = NULL;
-				len++;
-				break;
-			}
+			num_nod++;
+			list = _ra(list, num_nod, *h);
+			next = (*h)->next;
+			free(*h);
+			*h = next;
 		}
-
-		*h = NULL;
-
-		return (len);
+		free(list);
+		return (num_nod);
 	}
