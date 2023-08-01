@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * reverse_listint - Func that reverses a linked list
+ * reverse_listint - Function that reverses a linked list
  *
  * @head: 1st node in a linked list
  *
@@ -12,20 +11,20 @@
 
 	listint_t *reverse_listint(listint_t **head);
 	{
-		listint_t *ptr;
-		listint_t *num;
+		listint_t *previous, *next;
 
-		num = NULL;
-		ptr = NULL;
+		previous = NULL;
+		next = NULL;
 
 		while (*head != NULL)
 		{
-			num = (*head)->next;
-			(*head)->next = ptr;
-			ptr = *head;
-			*head = num;
+			next = (*head)->next;
+			(*head)->next = previous;
+			previous = *head;
+			*head = next;
 		}
 
-		*head = ptr;
-		return (*head);
+		*head = previous;
+
+		return (*previous);
 	}
