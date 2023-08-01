@@ -39,7 +39,7 @@
 
 
 		curr = t->next;
-		tp->next = curr->next;
+		t->next = curr->next;
 		free(curr);
 		return (1);
 	}
