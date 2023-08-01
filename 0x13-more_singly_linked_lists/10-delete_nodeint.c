@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * delete_nodeint_at_index - Inserts a new nod at
+ * delete_nodeint_at_index - functio that deletes a  nod at
  * a given psn in a linked list
  *
  * @head: 1st node in a linked list
@@ -16,7 +15,7 @@
 	int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	{
 		unsigned int j = 0;
-		listint_t *t = *head;
+		listint_t *tp = *head;
 		listint_t *curr = NULL;
 
 		if (*head == NULL)
@@ -24,23 +23,24 @@
 
 		if (index == 0)
 		{
-			free(t);
 			*head = (*head)->next;
+			free(tp);
 			return (1);
 		}
 
 		while (j < index - 1)
 		{
-			if (!t || !(t->next))
+			if (!tp || !(tp->next))
 				return (-1);
-			t = t->next;
+			tp = tp->next;
 			j++;
 		}
 
 
-		curr = t->next;
-		t->next = curr->next;
+		curr = tp->next;
+		tp->next = curr->next;
 		free(curr);
+
 		return (1);
 	}
 
