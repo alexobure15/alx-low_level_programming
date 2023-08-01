@@ -6,7 +6,7 @@
  * @head: linked list that should be freed  
  */
 
-	void free_listint(listint_t **head)
+	void free_listint(listint_t *head)
 	{
 		listint_t *tmp;
 
