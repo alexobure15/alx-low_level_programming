@@ -1,11 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * free_listint - Func that frees a linked list
+ * free_listint - Function that frees a linked list
  *
- * @head: linked list head
+ * @head: linked list that should be freed  
  */
 
 	void free_listint(listint_t **head)
