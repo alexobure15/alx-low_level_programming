@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * print_listint - prints all elements of a listint_t list
+ * print_listint - prints all elements of a list
  *
  * @h: type of linked list to print
  *
@@ -10,17 +10,17 @@
 
 	size_t print_listint(const listint_t *h)
 	{
-		size_t num_nods = 0;
+		size_t num_nod = 0;
 
-		while (h != NULL)
+		while (h)
 		{
 			printf("%d\n", h->n);
 
-			num_nods++;
+			num_nod++;
 			h = h->next;
 
 		}
 
-		return (num_nods);
+		return (num_nod);
 	}
 
