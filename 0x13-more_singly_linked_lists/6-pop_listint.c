@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * pop_listint - Func that deletes the head  nod
+ * pop_listint - Function that deletes the head  nod
  * of a linked list
  *
  * @head: 1st node in a linked list
@@ -13,18 +12,16 @@
 
 	int pop_listint(listint_t **head)
 	{
-		listint_t *t;
-		int nnod;
+		listint_t *tp;
+		int num_nod;
 
 		if (!head || !*head)
 			return (0);
 
-		nnod = (*head)->n;
+		num_nod = (*head)->n;
+		tp = (*head)->next;
 		free(*head);
-		t = (*head)->next;
-		*head = t;
+		*head = tp;
 
-		return (nnod);
-
+		return (num_nod);
 	}
-
