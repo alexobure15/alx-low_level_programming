@@ -26,5 +26,5 @@
 
 		*head = previous;
 
-		return (*previous);
+		return (*head);
 	}
