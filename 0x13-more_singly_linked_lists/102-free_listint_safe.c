@@ -7,35 +7,33 @@
  * Return: size of freed list
  */
 
-	size_t free_listint_safe(listint_t **h)
+size_t free_listint_safe(listint_t **h)
+{
+	size_t len = 0;
+	int diff;
+	listint_t *temp;
+
+	if (!h || !*h)
+		return (0);
+
+	while (*h)
 	{
-		size_t leng = 0;
-		int d;
-		listint_t *tp;
-
-		if (!h || !*h)
-			return (0);
-
-		while (*h)
+		diff = *h - (*h)->next;
+		if (diff > 0)
 		{
-			d = *h - (*h)->next;
-			if (d > 0)
-			{
-				tp = (*h)->next;
-				free(*h);
-				*h = tp;
-				leng++;
-			}
-			else
-			{
-				free(*h);
-				*h = NULL;
-				leng++;
-				break;
-			}
+			temp = (*h)->next;
+			free(*h);
+			*h = temp;
+			len++;
 		}
-
-		*h = NULL;
-
-		return (leng);
+		else
+		{
+			free(*h);
+			*h = NULL;
+			len++;
+			break;
+		}
 	}
+	*h = NULL;
+	return (len);
+}
