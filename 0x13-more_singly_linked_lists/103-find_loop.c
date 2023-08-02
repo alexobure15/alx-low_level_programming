@@ -1,5 +1,5 @@
 #include "lists.h"
-
+#include <stdio.h>
 /**
  * find_listint_loop - func that finds loop in a linked list
  *
