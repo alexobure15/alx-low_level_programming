@@ -2,6 +2,56 @@
 #include <stdlib.h>
 #include "lists.h"
 
+size_t looped_listint_len(const listint_t *head);
+/**
+ * looped_listint_len - Function that determines number
+ * of nodes in a looped linked list
+ *
+ * @head: 1st node in a linked list
+ *
+ * Return: number of nodes printed
+ */
+
+	size_t looped_listint_len(const listint_t *head)
+	{
+
+		const listint_t *slow, *fast;
+		size_t nods = 1;
+
+		if (head == NULL || head->next == NULL)
+			return (0);
+
+		slow = head->next;
+		fast = (head->next)->next;
+
+			while (fast)
+			{
+				if (slow == fast)
+			{
+				slow = head;
+				while (slow != fast)
+				{
+					nods++;
+					slow = slow->next;
+					fast = fast->next;
+				}
+
+				slow = slow->next;
+				while (slow != fast)
+				{
+					nods++;
+					slow = slow->next;
+				}
+
+				return (nods);
+			}
+
+			slow = slow->next;
+			fast = (fast->next)->next;
+		}
+
+		return (0);
+	}
 /**
  * print_listint_safe - func that prints a linked list
  *
@@ -9,34 +59,31 @@
  * Return: number of nodes printed in the list
  */
 
-	size_t print_listint_safe(const listint_t *head);
+	size_t print_listint_safe(const listint_t *head)
 	{
-		const listint_t *tp = NULL;
-		const listint_t *len = NULL;
-		size_t counter = 0;
-		size_t nnod;
+		size_t nd, idx = 0;
 
-		tp = head;
-		while (tp)
+		nd = looped_listint_len(head);
+
+		if (nd == 0)
 		{
-			printf("[%p] %d\n", (void *)tp, tp->n);
-			counter++;
-			tp = tp->next;
-			len = head;
-			nnod = 0;
-			while (nnod < counter)
+			for (; head != NULL; nd++)
 			{
-				if (tp == len)
-				{
-					printf("-> [%p] %d\n", (void *)tp, tp->n);
-					return (counter);
-				}
-				len = len->next;
-				nnod++;
+				printf("[%p] %d\n", (void *)head, head->n);
+				head = head->next;
 			}
-			if (!head)
-				exit(98);
 		}
-		return (counter);
-	}
 
+		else
+		{
+			for (idx = 0; idx < nd; idx++)
+			{
+				printf("[%p] %d\n", (void *)head, head->n);
+				head = head->next;
+			}
+
+			printf("-> [%p] %d\n", (void *)head, head->n);
+		}
+
+		return (nd);
+	}
