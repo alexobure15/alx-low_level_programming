@@ -3,29 +3,6 @@
 #include "lists.h"
 
 /**
- * free_listp - frees a linked list
- *
- * @head: 1st node in a linked list
- * Return: void
- */
-	void free_listp(listp_t **head)
-	{
-		listp_t *current;
-		listp_t *tp;
-
-		if (head != NULL)
-		{
-			current = *head;
-			while ((tp = current) != NULL)
-			{
-				current = current->next;
-				free(tp);
-			}
-			*head = NULL;
-		}
-	}
-
-/**
  * print_listint_safe - func that prints a linked list
  *
  * @head: 1st node in a linked list
@@ -34,40 +11,32 @@
 
 	size_t print_listint_safe(const listint_t *head);
 	{
-		size_t num = 0;
-		listp_t *ptr, *add, *new;
+		const listint_t *tp = NULL;
+		const listint_t *len = NULL;
+		size_t counter = 0;
+		size_t nnod;
 
-		ptr = NULL;
-
-		while (head != NULL)
+		tp = head;
+		while (tp)
 		{
-			new = malloc(sizeof(listp_t));
-
-			if (new == NULL)
-				exit(98);
-
-			new->p = (void *)head;
-			new->next = ptr;
-			ptr = new;
-
-			add = ptr;
-
-			while (add->next != NULL)
+			printf("[%p] %d\n", (void *)tp, tp->n);
+			counter++;
+			tp = tp->next;
+			len = head;
+			nnod = 0;
+			while (nnod < counter)
 			{
-				add = add->next;
-
-				if (head == add->p)
+				if (tp == len)
 				{
-					printf("-> [%p] %d\n", (void *)head, head->n);
-					free_listp(&ptr);
-					return (num);
+					printf("-> [%p] %d\n", (void *)tp, tp->n);
+					return (counter);
 				}
+				len = len->next;
+				nnod++;
 			}
-			head = head->next;
-			printf("[%p] %d\n", (void *)head, head->n);
-			num++;
+			if (!head)
+				exit(98);
 		}
-
-		free_listp(&ptr);
-		return (num);
+		return (counter);
 	}
+
