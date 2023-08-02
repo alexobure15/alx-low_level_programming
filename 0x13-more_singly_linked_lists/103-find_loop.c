@@ -8,29 +8,35 @@
  * otherwise NULL if no loop
  */
 
-	listint_t *find_listint_loop(listint_t *head)
+listint_t *find_listint_loop(listint_t *head)
+{
+	listint_t *tortoise, *hare;
+
+	if (head == NULL || head->next == NULL)
+		return (NULL);
+
+	tortoise = head->next;
+	hare = (head->next)->next;
+
+	while (hare)
 	{
-		listint_t *s = head;
-		listint_t *f = head;
-
-		if (!head)
-			return (NULL);
-
-		while (s && f && f->next)
+		if (tortoise == hare)
 		{
-			f = f->next->next;
-			s = s->next;
-			if (f == s)
+			tortoise = head;
+
+			while (tortoise != hare)
 			{
-				s = head;
-				while (s != f)
-				{
-					s = s->next;
-					f = f->next;
-				}
-				return (f);
+				tortoise = tortoise->next;
+				hare = hare->next;
 			}
+
+			return (tortoise);
 		}
 
-		return (NULL);
+		tortoise = tortoise->next;
+		hare = (hare->next)->next;
 	}
+
+	return (NULL);
+}
+
