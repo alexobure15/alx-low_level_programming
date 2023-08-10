@@ -1,37 +1,33 @@
 #include "main.h"
 #include <string.h>
-/**
- * append_text_to_file - func that appends text
- * to the end of an existing file
- *
- * @filename: name of the file to be determined
- *
- * @text_content: the text to be added to the file
- *
- * Return: On Success return 1 or -1 on failure
- */
 
+/**
+ * append_text_to_file - appends text to a file if it exists
+ * @filename: pointer to the name of the file
+ * @text_content: text to be appended
+ *
+ * Return: 1 if success -1 on failure(file does not exist)
+ */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fdescriptor, leng, w = 0;
+	int fd, fw, len = 0;
 
 	if (filename == NULL)
 		return (-1);
 
 	if (text_content != NULL)
 	{
-		for (leng = 0; text_content[leng];)
-			leng++;
+		for (len = 0; text_content[len];)
+			len++;
 	}
 
-	fdescriptor = open(filename, O_WRONLY | O_APPEND);
-	w = write(fdescriptor, text_content, leng);
+	fd = open(filename, O_WRONLY | O_APPEND);
+	fw = write(fd, text_content, len);
 
-	if (fdescriptor == -1 || w == -1)
+	if (fd == -1 || fw == -1)
 		return (-1);
 
-	close(fdescriptor);
+	close(fd);
 
 	return (1);
 }
-
