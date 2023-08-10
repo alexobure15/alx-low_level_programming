@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <string.h>
 /**
  * append_text_to_file - func that appends text
  * to the end of an existing file
@@ -33,6 +33,5 @@ int append_text_to_file(const char *filename, char *text_content)
 	close(fdescriptor);
 
 	return (1);
-
 }
 
