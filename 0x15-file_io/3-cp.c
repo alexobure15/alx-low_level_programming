@@ -14,7 +14,7 @@ char *create_buffer(char *file)
 	if (buff == NULL)
 	{
 		dprintf(STDERR_FILENO,
-			"Error: Can't write t %s\n", file);
+			"Error: Can't write to %s\n", file);
 		exit(99);
 	}
 
@@ -33,7 +33,7 @@ void close_file(int fdescriptor)
 
 	if (i == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fdescriptor %d\n", fdescriptor);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdescriptor);
 		exit(100);
 	}
 }
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 		if (t == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: Can't write t %s\n", argv[2]);
+				"Error: Can't write to %s\n", argv[2]);
 			free(buff);
 			exit(99);
 		}
