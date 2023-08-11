@@ -14,7 +14,7 @@ char *create_buffer(char *file)
 	if (buff == NULL)
 	{
 		dprintf(STDERR_FILENO,
-			"Error: Can't write to %s\n", file);
+			"Error: Can't write t %s\n", file);
 		exit(99);
 	}
 
@@ -23,7 +23,7 @@ char *create_buffer(char *file)
 
 /**
  * close_file - function that closes file copied file
- * @fdescriptor: fdescriptor to be evaluated
+ * @fdescriptor: file descriptor to be evaluated
  */
 void close_file(int fdescriptor)
 {
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 		if (t == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: Can't write to %s\n", argv[2]);
+				"Error: Can't write t %s\n", argv[2]);
 			free(buff);
 			exit(99);
 		}
